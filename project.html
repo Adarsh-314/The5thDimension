@@ -5,12 +5,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Robotics Club NIT Patna</title>
-  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/project.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
 </head>
 
+<script>
+  function toggleMenu() {
+    document.getElementById("menuDropdown").classList.toggle("show");
+  }
+
+  function toggleNav() {
+    const navMenu = document.querySelector("#navbar ul");
+    navMenu.classList.toggle("show");
+    document.body.classList.toggle('nav-open');
+  }
+
+  // Close menu when clicking outside
+  window.addEventListener("click", function(e) {
+    const menu = document.getElementById("menuDropdown");
+    const hamburger = document.querySelector(".hamburger");
+    if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.remove("show");
+    }
+  });
+
+  // Close nav menu when clicking a link
+  document.querySelectorAll("#navbar ul li a").forEach(link => {
+    link.addEventListener("click", function() {
+      document.querySelector("#navbar ul").classList.remove("show");
+    });
+  });
+
+  // Keyboard support for mobile nav hamburger
+  const mobileNavBtn = document.querySelector('.mobile-hamburger');
+  if (mobileNavBtn) {
+    mobileNavBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleNav();
+      }
+    });
+  }
+</script>
+
 <body>
   <header>
+   
+  <!-- <div class="mobile-hamburger" onclick="toggleNav()" role="button" tabindex="0" aria-label="Open navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div> -->
+
+  <div class="top-menu">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="menu-dropdown" id="menuDropdown">
+      
+     
+       <a href="index.html">Home</a>
+        <a href="project.html">Projects</a>
+        <a href="events.html">Events</a>
+        <a href="team.html">Team</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="login.html">Login</a>
+         <a href="signup.html">Sign Up</a>
+      <a href="#contact-us">Contact Us</a>
+       
+    </div>
+  </div>
+
+     
     <nav id="navbar">
       <div class="logo">
         <img src="nitp_robotics_logo.png" alt="NITP ROBOTICS LOGO">
@@ -23,14 +93,11 @@
         <li><a href="team.html">Team</a></li>
         <li><a href="blogs.html">Blogs</a></li>
         <li><a href="gallery.html">Gallery</a></li>
+        <li class="mobile-auth"><a href="login.html">Login</a></li>
+        <li class="mobile-auth"><a href="signup.html">Sign Up</a></li>
+        <li class="mobile-auth"><a href="#contact-us">Contact Us</a></li>
       </ul>
-      <div class="Contact-Links">
-        <li> <a href="https://www.instagram.com/robotics_club_nitp/" target="_blank"><button
-              class="btn">Instagram</button></a></li>
-        <li><a href="https://www.facebook.com/robonitp/" target="_blank"><button class="btn">Facebook</button></a></li>
-        <li><a href="https://www.youtube.com/@roboticsclubnitp8637" target="_blank"><button
-              class="btn">Youtube</button></a></li>
-      </div>
+    
     </nav>
   </header>
 
@@ -189,7 +256,23 @@
       </div>
 
   </main>
-
+ 
+   <footer class="foot">
+      <div class="footlogo">
+        <img src="nitp_robotics_logo.png" alt="NITP ROBOTICS LOGO">
+        <h1>Robotics Club NIT Patna</h1>
+        <p> Ashok Rajpath, National Institute of Technology Patna
+          Incubation Center 3rd Floor - 800005</p>
+      </div>
+      <div id="contact-us">
+        <li> <a href="https://www.instagram.com/robotics_club_nitp/" target="_blank"><img src="insta_logo.png"
+              alt="Instagram"></a></li>
+        <li><a href="https://www.facebook.com/robonitp/" target="_blank"><img src="facebook_logo.png"
+              alt="Facebook"></a></li>
+        <li><a href="https://www.youtube.com/@roboticsclubnitp8637" target="_blank"><img src="youtube_logo.png"
+              alt="Youtube"></a></li>
+      </div>
+    </footer>
 </body>
 
 </html>
